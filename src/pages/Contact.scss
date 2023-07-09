@@ -1,0 +1,28 @@
+h4 {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h4 a {
+    color: black;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 0 auto;
+
+    textarea {
+        width: 100%;
+    }
+
+    button[type='submit']{
+        padding: 5px 20px;
+    }
+}
+

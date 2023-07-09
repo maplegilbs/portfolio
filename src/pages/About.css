@@ -1,0 +1,29 @@
+main {
+  font-size: 0.8rem;
+}
+
+.profile-image {
+  width: 70%;
+  padding: 15px;
+  float: right;
+}
+
+.about-paragraph {
+  padding: 5px;
+}
+
+.first-letter {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 720px) {
+  main {
+    font-size: 1rem;
+    line-height: 120%;
+  }
+  .profile-image {
+    width: 50%;
+  }
+}
+
+/*# sourceMappingURL=About.css.map */

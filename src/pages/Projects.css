@@ -1,0 +1,136 @@
+.project-section {
+  padding: 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-family: Rockwell;
+  margin-top: 5rem;
+  padding-bottom: 2rem;
+  border: 2px solid #aaa;
+  border-radius: 20px;
+  background: rgba(250, 250, 240, 0.5);
+}
+
+.project-section:nth-child(3) {
+  margin-top: 2.5rem;
+}
+
+.project-title {
+  align-self: start;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  margin: 1rem 0;
+  font-size: 0.75rem;
+}
+.project-details ul {
+  margin-top: 3px;
+  list-style: none;
+  font-size: 0.7rem;
+  display: flex;
+  height: 6rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.project-details li {
+  flex-basis: auto;
+  padding: 0.35rem 2.5%;
+}
+
+.project-image {
+  position: relative;
+  opacity: 0.65;
+}
+.project-image a {
+  top: calc(50% - 10px);
+  left: 25%;
+  position: absolute;
+  margin: 0 auto;
+  padding: 2px 5px;
+  width: 50%;
+  height: 20px;
+  text-align: center;
+}
+.project-image img {
+  width: 100%;
+  margin: 0 auto;
+}
+.project-image .mobile-image-prvw {
+  width: 25%;
+  height: auto;
+  transform: translateY(20%);
+  right: 2%;
+  position: absolute;
+}
+
+.project-image--hovered {
+  opacity: 1;
+}
+
+.project-image__button {
+  background-color: rgb(70, 70, 70);
+  border: none;
+  padding: 5px 10px;
+  font-family: Rockwell;
+  font-weight: 700;
+  color: white;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.project-image__button--hovered {
+  background-color: black;
+}
+
+.project-description {
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 720px) {
+  .project-section {
+    display: grid;
+    grid-template: repeat(3, minmax(1px, 1fr))/repeat(5, 1fr);
+    gap: 0 1rem;
+  }
+  .image-right {
+    grid-template-areas: "title title image image image" "description description image image image" "details details image image image";
+  }
+  .image-left {
+    grid-template-areas: "image image image title title" "image image image description description" "image image image details details";
+  }
+  .project-title {
+    grid-area: title;
+  }
+  .project-title hr {
+    width: 35%;
+    margin: 1rem;
+  }
+  .project-image {
+    grid-area: image;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .project-image__button {
+    font-size: 1.25rem;
+  }
+  .project-details {
+    align-items: start;
+    grid-area: details;
+    margin: 0;
+  }
+  .project-description {
+    grid-area: description;
+    font-size: 0.9rem;
+  }
+}
+
+/*# sourceMappingURL=Projects.css.map */

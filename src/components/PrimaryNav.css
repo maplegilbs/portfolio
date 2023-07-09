@@ -1,0 +1,95 @@
+.nav--top {
+  font-family: Rockwell;
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  padding: 6px;
+}
+
+.nav--icon {
+  color: black;
+  font-size: 1.25rem;
+}
+
+.nav--top_menu-container {
+  background-color: white;
+  display: flex;
+  position: absolute;
+  left: 0px;
+  margin: 0;
+  padding: 15px;
+  flex-direction: column;
+  width: 100vw;
+  transition: all 1s;
+  transform: translateY(-200%);
+}
+
+.menu--mobile {
+  transform: translateY(0);
+}
+
+.nav--top_menu-container i {
+  align-self: end;
+}
+
+.nav--top_menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav--top_menu li {
+  display: block;
+  width: 85%;
+  padding: 5px;
+  align-self: center;
+  text-align: center;
+}
+
+.nav--top_menu a {
+  text-decoration: none;
+  color: black;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+hr {
+  color: black;
+}
+
+@media screen and (min-width: 720px) {
+  .vertical-divider {
+    border: 1px solid black;
+    background: linear-gradient(0deg, black, transparent);
+    height: 1.25rem;
+    width: 7px;
+  }
+  .nav--top {
+    position: relative;
+    justify-content: center;
+  }
+  .nav--icon.fa-bars {
+    display: none;
+  }
+  .nav--top_menu-container {
+    position: relative;
+    transform: none;
+    padding: 0;
+    margin: -10px 0;
+    width: max-content;
+  }
+  .nav--top_menu-container i {
+    display: none;
+  }
+  .nav--top_menu {
+    flex-direction: row;
+  }
+  .nav--top_menu li {
+    margin: 0 0.5rem;
+  }
+}
+
+/*# sourceMappingURL=PrimaryNav.css.map */
