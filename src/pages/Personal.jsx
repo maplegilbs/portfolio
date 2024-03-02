@@ -5,7 +5,7 @@ import { GalleryImage } from '../components/GalleryImage';
 export function Personal() {
 
     const galleryImages = imagesList.map(imageInfo => {
-        return <GalleryImage key={imageInfo.fileName} source={`src/assets/personalPageImages/${imageInfo.fileName}`} alt={`${imageInfo.alt}`} />
+        return <GalleryImage key={imageInfo.fileName} source={`personalPageImages/${imageInfo.fileName}`} alt={`${imageInfo.alt}`} />
     })
 
     return (

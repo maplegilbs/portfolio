@@ -10,7 +10,6 @@ function App() {
         <PrimaryHeader />
         <Outlet />
         <PrimaryFooter />
-        <p>Testing 1234</p>
       </div>
     </div>
   );

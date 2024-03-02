@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import profileImage from '../assets/profileBW.png'
+import profileImage from '../assets/profileBW2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'

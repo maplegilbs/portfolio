@@ -16,8 +16,8 @@ export function Project({project, isMobile, isEven}) {
             </div>
 
             <div  className={`${isHovered ? 'project-image project-image--hovered' : 'project-image'}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
-                <img src={`src/assets/${project.imgFileName}`} alt={project.imgAlt} />
-                {project.mobileImgFileName && <img className ='mobile-image-prvw' src={`src/assets/${project.mobileImgFileName}`} />}
+                <img src={`assets/${project.imgFileName}`} alt={project.imgAlt} />
+                {project.mobileImgFileName && <img className ='mobile-image-prvw' src={`assets/${project.mobileImgFileName}`} />}
                 <a target='_blank' href={project.url}>
                     <button className={`project-image__button ${isHovered ? 'project-image__button--hovered' : ''}`}>View Live Site</button>
                 </a>
