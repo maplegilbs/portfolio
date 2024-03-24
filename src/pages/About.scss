@@ -9,7 +9,38 @@ main {
 }
 
 .about-paragraph {
-  padding: 5px;
+    padding: 5px;
+}
+
+.about--summary {
+
+    .tech-groups {
+        margin: 10px auto;
+        display: grid;
+        grid-template: auto/repeat(4, 1fr);
+    }
+
+    .tech-group {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem auto;
+
+        h6 {
+            font-size: .75rem;
+            font-weight: 500;
+        }
+
+        img {
+            height: 2.5rem;
+        }
+    }
+
+    .tech-group:hover {
+        transform: scale(1.2);
+    }
 }
 
 .first-letter {
@@ -25,5 +56,11 @@ main {
 
     .profile-image {
         width: 50%;
+    }
+
+    .tech-group {
+        img {
+            height: 3.5rem;
+        }
     }
 }

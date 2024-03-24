@@ -9,7 +9,7 @@ export const projectDetails =
             imgFileName: 'bearCobbleLaptop2.png',
             imgAlt: 'A screenshot of Bear Cobble HQ a digital dashboard for Bear Cobble Sugarworks. Image shows the site\'s navigation, sensor display, weather conditions and forecast display and a list of pending infrastructure fixes.',
             mobileImgFileName: 'bearCobbleMobile.png',
-            url: 'https://bearcobble.herokuapp.com',
+            url: 'https://bearcobble.com',
             technologies: ['Next.js', 'React', 'Sass', 'HTML/CSS3', 'Express.js', 'Heroku', 'MySQL', 'Smartrek'],
         },
         {
@@ -32,7 +32,7 @@ export const projectDetails =
             descriptionLong: 'The classic game of Jeopardy brought to your web-browser.  Built to mimic the gameplay as close as possible, with a few fun twists.  Select your opponents (from the all-time champion Ken Jennings, to a pet-rock) and challenge them to two rounds of Jeopardy, and see if you can walk away a champion in Final Jeopardy.',
             imgFileName: 'jeopardyLaptop.png',
             imgAlt: 'A screenshot of a website mimicking jeopardy.',
-            url: 'https://ubiquitous-couscous-ovln911.pages.github.io/',
+            url: 'https://scottgilbert-jeopardy.vercel.app/',
             technologies: ['Javascript', 'HTML', 'CSS', 'SASS'],
         },
         {

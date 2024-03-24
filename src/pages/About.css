@@ -12,6 +12,30 @@ main {
   padding: 5px;
 }
 
+.about--summary .tech-groups {
+  margin: 10px auto;
+  display: grid;
+  grid-template: auto/repeat(4, 1fr);
+}
+.about--summary .tech-group {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+}
+.about--summary .tech-group h6 {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.about--summary .tech-group img {
+  height: 2.5rem;
+}
+.about--summary .tech-group:hover {
+  transform: scale(1.2);
+}
+
 .first-letter {
   font-size: 2rem;
 }
@@ -23,6 +47,9 @@ main {
   }
   .profile-image {
     width: 50%;
+  }
+  .tech-group img {
+    height: 3.5rem;
   }
 }
 

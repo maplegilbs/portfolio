@@ -20,12 +20,12 @@ export function Work() {
             <br />
             <div className='buttons-container'>
                 <a><button onClick={()=>setIsPDFVisible(prev=>!prev)}> {isPDFVisible? "Hide Resume":`Resume Preview`}</button></a>
-                <a target="_blank" href="/assets/ScottGilbert-Resume-2023_06_20.pdf"><button >Resume Download</button></a>
+                <a target="_blank" href="/assets/ScottGilbertResume-2024_02_26.pdf"><button >Resume Download</button></a>
             </div>
             <div>
                 {
                     isPDFVisible &&
-                    <Document className="pdf-preview" file="/assets/ScottGilbert-Resume-2023_06_20.pdf" loading="...Loading...">
+                    <Document className="pdf-preview" file="/assets/ScottGilbertResume-2024_02_26.pdf" loading="...Loading...">
                         <Page pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} width={window.innerWidth < 700? '300': ''}>
                         </Page>
                     </Document>
