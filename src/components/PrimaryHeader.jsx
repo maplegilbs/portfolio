@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import profileImage from '../assets/profileBW2.png'
+import profileImage from '../assets/profileBW.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
@@ -17,10 +17,10 @@ export function PrimaryHeader() {
                 </div>
                 <div className='header__profile-info'>
                     <h3>Scott Gilbert</h3>
-                    <h5>Web Developer / Sugarmaker / Cartographer</h5>
-                    <h5 className='mobile-hidden'><a target="_blank" href="https://www.calebkenna.com/galleries/gallery/fine-art-prints/">Middlebury, VT <FontAwesomeIcon icon={faLocationDot}/></a></h5>
+                    <h5>Web Developer</h5>
+                    <h5 className='mobile-hidden'><a target="_blank" href="https://www.calebkenna.com/galleries/gallery/fine-art-prints/">Middlebury, VT <FontAwesomeIcon icon={faLocationDot} /></a></h5>
                 </div>
-                <FontAwesomeIcon icon={faBars} onClick={() => setIsMobileMenuDisplayed((prev) => !prev)} className="nav--icon menu-expand"/>
+                <FontAwesomeIcon icon={faBars} onClick={() => setIsMobileMenuDisplayed((prev) => !prev)} className="nav--icon menu-expand" />
             </header>
             <hr className="header__hr" />
             <PrimaryNav isMobileMenuDisplayed={isMobileMenuDisplayed} setIsMobileMenuDisplayed={setIsMobileMenuDisplayed} />

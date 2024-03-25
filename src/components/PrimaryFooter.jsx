@@ -19,7 +19,7 @@ export function PrimaryFooter() {
                         <img className='footer__icon' src={emailIcon} alt='Email envelope icon'/> Get in touch</Link>
                 </div>
                 <div className='footer__section'>
-                    Built with &nbsp;<FontAwesomeIcon icon={faHeart} size='xl'/> &nbsp;+ <div><img className='footer__icon' src={reactIcon} alt='React icon'/></div>Scott Gilbert 2023
+                    Scott Gilbert 2024
                 </div>
                 <div className='footer__section'>
                     <a href="https://github.com" style={{color: 'black'}}>
