@@ -2,9 +2,9 @@
 import '../index.css'
 import './About.css';
 //Images
-import ScottImage from '../assets/shoebox.jpg';
 import Profile from '../assets/profile.png';
 import Reesie from '../assets/Reesie.jpg';
+import ScottImage from '../assets/scottGilbertPortrait.jpg';
 import ReactIcon from '../assets/icons/React.png'
 import NextIcon from '../assets/icons/next-js.svg'
 import NodeIcon from '../assets/icons/NodeJS.png'
@@ -22,16 +22,16 @@ export function About() {
 
     return (
         <main>
-            {/* <h1 className='main__heading'>About Me</h1>
-            <hr className='main__heading__horizontal-rule' /> */}
             <br />
             <section>
                 <div className='about--summary'>
-                    {/* <img className='profile-image' src={Reesie} /> */}
-                    <span className='first-letter'>Hi</span>, my name is Scott Gilbert.  <br /><br />
+                    <img className='profile-image' src={ScottImage} />
+                    <span className='first-letter'>Hi</span>, my name is Scott Gilbert.  
+                    <br /><br /><br />
                     I love to problem solve and to collaborate.  I find simplicity and efficiency to be beautiful.  I love to learn and to teach. I think the energy of a team working towards a common goal is infectious.
-                    <br /><br />
+                    <br /><br /><br />
                     I find my happy place with the following technologies (but am constantly falling in love with more).
+
                     <div className='tech-groups'>
                         <div className='tech-group'>
                             <img alt='Next.js Logo' src={NextIcon} />
