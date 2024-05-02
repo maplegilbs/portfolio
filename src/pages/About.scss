@@ -2,6 +2,48 @@ main {
     font-size: .8rem;
 }
 
+.access-overlay {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        text-align: center;
+        margin: 1rem auto;
+    }
+
+    .inputs-div {
+        form {
+            margin: 0 auto;
+            width: max-content;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type=text] {
+            padding: 3px;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 3px;
+            background-color: #444;
+            color: white;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 1px;
+            border: 0px;
+            cursor: pointer;
+
+            &:active {
+                background-color: white;
+                color: black;
+                border: 2px solid #444;
+            }
+        }
+    }
+}
+
 .profile-image {
     width: 70%;
     padding: 15px;
@@ -20,7 +62,7 @@ main {
         grid-template: auto/repeat(4, 1fr);
         width: max-content;
     }
-    
+
     .tech-group {
         cursor: pointer;
         display: flex;
@@ -28,17 +70,17 @@ main {
         justify-content: center;
         align-items: center;
         margin: 1rem auto;
-        
+
         h6 {
             font-size: .75rem;
             font-weight: 500;
         }
-        
+
         img {
             height: 2.5rem;
         }
     }
-    
+
     .tech-group:hover {
         transform: scale(1.2);
     }
@@ -54,21 +96,22 @@ details {
 }
 
 @media screen and (min-width: 720px) {
-    
+
     main {
         font-size: 1rem;
         line-height: 120%;
     }
-    
+
     .profile-image {
         width: 50%;
     }
-    .about--summary{
-        .tech-groups{
+
+    .about--summary {
+        .tech-groups {
             grid-template: auto/repeat(6, 1fr);
         }
     }
-    
+
     .tech-group {
         img {
             height: 3.5rem;
