@@ -5,6 +5,12 @@
   border: 2px solid black;
 }
 
+.error-notice {
+  color: maroon;
+  text-align: center;
+  margin: 0.5rem auto;
+}
+
 .recommendations-section {
   width: 90%;
   margin: 0 auto;

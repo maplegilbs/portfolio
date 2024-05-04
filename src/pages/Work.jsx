@@ -1,11 +1,10 @@
 import '../index.css';
 import './Work.css';
-import { Document, Page, Thumbnail } from 'react-pdf';
+import { Document, Page } from 'react-pdf';
 import { useState, useEffect } from 'react';
 import { pdfjs } from 'react-pdf';
 import { NavLink } from 'react-router-dom';
 import Loader from '../components/Loader.jsx'
-const secretCode = 'highfive';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
@@ -13,22 +12,66 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 export function Work() {
-    const [pageStatus, setPageStatus] = useState('locked'); //locked, loading, unlocked
+    const [pageStatus, setPageStatus] = useState('locked'); //locked, loading, unlocked, error
+    const [token, setToken] = useState(null)
     const [isPDFVisible, setIsPDFVisible] = useState(true);
+    const [resumeFile, setResumeFile] = useState(null);
     const [passcode, setPasscode] = useState('');
 
     useEffect(() => {
-        if (sessionStorage.getItem('access')) {
+        if (sessionStorage.getItem('token')) {
+            let sessionToken = sessionStorage.getItem('token')
+            setToken(sessionToken)
             setPageStatus('unlocked');
         }
     }, [])
 
-    function handleSubmit(e) {
+    console.log(resumeFile)
+
+    useEffect(() => {
+        async function getResume() {
+            try {
+                let response = await fetch('http://localhost:3001/portfolio/resume', {
+                    headers: {
+                        authorization: `Bearer ${token}`
+                    }
+                });
+                if (response.status === 200) {
+                    let data = await response.blob();
+                    setResumeFile(data);
+                }
+            } catch (error) {
+                console.error(`Error fetching resume file: ${error}`)
+            }
+        }
+        getResume();
+
+    }, [pageStatus])
+
+    async function handleSubmit(e) {
         e.preventDefault();
-        if (passcode === secretCode) {
-            setPageStatus('loading')
-            setTimeout(() => setPageStatus('unlocked'), 2000)
-            sessionStorage.setItem('access', true);
+        try {
+            let response = await fetch('http://localhost:3001/portfolio/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ password: passcode })
+            })
+            //if login is success unlock the page, set a token in sessionStorage
+            if (response.status === 200) {
+                let data = await response.json();
+                sessionStorage.setItem('token', data.body)
+                setToken(data.body)
+                setPageStatus('loading')
+                setTimeout(() => setPageStatus('unlocked'), 2000)
+            }
+            else {
+                setPageStatus('error')
+            }
+        } catch (error) {
+            setPageStatus('error')
+            console.error(`Error logging in: ${error}`)
         }
     }
 
@@ -38,13 +81,14 @@ export function Work() {
             <h1 className='main__heading'>Work History</h1>
             <hr className='main__heading__horizontal-rule' />
             <br />
-            {pageStatus === 'locked' &&
+            {(pageStatus === 'locked' || pageStatus === 'error') &&
                 <div className='access-overlay'>
                     <p>To view work history and a resume please enter the password provided to you when linked to this page.</p>
                     <div className='inputs-div'>
                         <form onSubmit={handleSubmit}>
                             <input type="text" value={passcode} onChange={(e) => setPasscode(e.target.value)} />
                             <button type="submit">Enter</button>
+                        {pageStatus === 'error' && <div class='error-notice'>Passcode Incorrect</div>}
                         </form>
                     </div>
                     <p>  If you were not provided a passcode <NavLink to="/contact">contact me</NavLink> and I will be happy to provide you with my resume, references or other desired information.</p>
@@ -62,8 +106,8 @@ export function Work() {
                     </div>
                     <div>
                         {
-                            isPDFVisible &&
-                            <Document className="pdf-preview" file="/assets/Portfolio_2024_Resume.pdf" loading="...Loading...">
+                            (isPDFVisible && resumeFile) &&
+                            <Document className="pdf-preview" file={resumeFile} loading="...Loading...">
                                 <Page pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} width={window.innerWidth < 700 ? '300' : ''}>
                                 </Page>
                             </Document>
