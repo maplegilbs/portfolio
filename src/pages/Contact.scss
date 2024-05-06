@@ -9,6 +9,21 @@ h4 a {
     color: black;
 }
 
+.message__container {
+    height: 100%;
+    width: max-content;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+
+    p{
+        margin: .4rem auto;
+    }
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -16,20 +31,25 @@ h4 a {
     justify-content: space-evenly;
     width: 90%;
     margin: 0 auto;
+    max-width: 1600px;
+
+    label {
+        width: 100%;
+        margin: 0 auto;
+    }
 
     textarea {
         width: 100%;
     }
 
-    button[type='submit']{
+    button[type='submit'] {
         padding: 5px 20px;
     }
 }
 
 @media screen and (min-width: 720px) {
     .contact-form {
-        width: 50%;
+        width: 80%;
     }
-    
-}
 
+}

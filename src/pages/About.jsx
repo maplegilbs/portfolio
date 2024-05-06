@@ -26,9 +26,13 @@ export function About() {
             <section>
                 <div className='about--summary'>
                     <img className='profile-image' src={ScottImage} />
-                    <span className='first-letter'>Hi</span>, my name is Scott Gilbert.  
+                    <span className='first-letter'>Hi</span>, my name is Scott Gilbert.
+                    <br /><br /><br />
+                    I am a software developer leveraging the power of web based technologies to make life easier, more productive, and more fun.  
                     <br /><br /><br />
                     I love to problem solve and to collaborate.  I find simplicity and efficiency to be beautiful.  I love to learn and to teach. I think the energy of a team working towards a common goal is infectious.
+                    <br /><br /><br />
+                    Curious about collaborating? I'd love to meet you.  Why don't you <a href="/contact">reach out</a> and I'll get right back to you.  
                     <br /><br /><br />
                     I find my happy place with the following technologies (but am constantly falling in love with more).
 
@@ -85,7 +89,7 @@ export function About() {
                 </div>
                 <br />
                 <details>
-                    <summary>Get the full story...</summary>
+                    <summary>Get the origin story...</summary>
                     <p className='about-paragraph'>
                         <br />In the early 2000s I organized an informal summer street hockey leauge (SBSHL) with a bunch of my highschool buddies.
                         We set up milk-crate nets on the town tennis courts, started a stop-watch timer and chewed through C batteries on our panisonic boombox.

@@ -18,6 +18,8 @@ export function Work() {
     const [resumeFile, setResumeFile] = useState(null);
     const [passcode, setPasscode] = useState('');
 
+
+    //on first render check if there is a token set in session storage, if there is set it in state, and set page status to unlocked
     useEffect(() => {
         if (sessionStorage.getItem('token')) {
             let sessionToken = sessionStorage.getItem('token')
@@ -26,12 +28,11 @@ export function Work() {
         }
     }, [])
 
-    console.log(resumeFile)
 
     useEffect(() => {
         async function getResume() {
             try {
-                let response = await fetch('http://localhost:3001/portfolio/resume', {
+                let response = await fetch(`${process.env.REACT_APP_SERVER}/portfolio/resume`, {
                     headers: {
                         authorization: `Bearer ${token}`
                     }
@@ -44,14 +45,15 @@ export function Work() {
                 console.error(`Error fetching resume file: ${error}`)
             }
         }
-        getResume();
-
+        if (!resumeFile && pageStatus !== 'locked' && pageStatus !== 'error') {
+            getResume();
+        }
     }, [pageStatus])
 
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            let response = await fetch('http://localhost:3001/portfolio/login', {
+            let response = await fetch(`${process.env.REACT_APP_SERVER}/portfolio/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -88,7 +90,7 @@ export function Work() {
                         <form onSubmit={handleSubmit}>
                             <input type="text" value={passcode} onChange={(e) => setPasscode(e.target.value)} />
                             <button type="submit">Enter</button>
-                        {pageStatus === 'error' && <div class='error-notice'>Passcode Incorrect</div>}
+                            {pageStatus === 'error' && <div class='error-notice'>Passcode Incorrect</div>}
                         </form>
                     </div>
                     <p>  If you were not provided a passcode <NavLink to="/contact">contact me</NavLink> and I will be happy to provide you with my resume, references or other desired information.</p>
@@ -102,7 +104,7 @@ export function Work() {
                 <>
                     <div className='buttons-container'>
                         <a><button onClick={() => setIsPDFVisible(prev => !prev)}> {isPDFVisible ? "Hide Resume" : `Resume Preview`}</button></a>
-                        <a target="_blank" href="/assets/ScottGilbertResume-2024_02_26.pdf"><button >Resume Download</button></a>
+                        <a target="_blank" download={'ScottGilbertResume.pdf'} href={URL.createObjectURL(resumeFile)}><button >Resume Download</button></a>
                     </div>
                     <div>
                         {
