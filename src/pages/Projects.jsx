@@ -6,6 +6,18 @@ import { Project } from '../components/Project';
 
 export function Projects() {
     const [isMobile, setIsMobile] = useState('');
+    const [windowY, setWindowY] = useState(0)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // console.log(window.scrollY)
+            setWindowY(window.scrollY)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return (() => window.removeEventListener('scroll', handleScroll))
+    }, [])
     
 
     //determine if user is in mobile mode - if so render one class, otherwise use another
@@ -13,7 +25,7 @@ export function Projects() {
         window.innerWidth >= 720 ? setIsMobile(false) : setIsMobile(true);
     }, [])
 
-    const projectSections = projectDetails.map((project, index) => <Project key={project.name} isEven={index % 2 } project={project} isMobile={isMobile}/>)
+    const projectSections = projectDetails.map((project, index) => <Project key={project.name} isEven={index % 2 } project={project} isMobile={isMobile} windowY={windowY}/>)
 
     return (
         <main>

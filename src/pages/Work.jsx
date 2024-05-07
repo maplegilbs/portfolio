@@ -90,7 +90,7 @@ export function Work() {
                         <form onSubmit={handleSubmit}>
                             <input type="text" value={passcode} onChange={(e) => setPasscode(e.target.value)} />
                             <button type="submit">Enter</button>
-                            {pageStatus === 'error' && <div class='error-notice'>Passcode Incorrect</div>}
+                            {pageStatus === 'error' && <div className='error-notice'>Passcode Incorrect</div>}
                         </form>
                     </div>
                     <p>  If you were not provided a passcode <NavLink to="/contact">contact me</NavLink> and I will be happy to provide you with my resume, references or other desired information.</p>

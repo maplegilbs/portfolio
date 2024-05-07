@@ -46,7 +46,8 @@
 
 .project-image {
   position: relative;
-  opacity: 0.65;
+  opacity: 0.45;
+  transition: all 0.6s;
 }
 .project-image a {
   top: calc(50% - 10px);
@@ -83,6 +84,7 @@
   color: white;
   border-radius: 5%;
   cursor: pointer;
+  transition: all 0.6s;
 }
 
 .project-image__button--hovered {
