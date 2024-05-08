@@ -22,13 +22,13 @@ export function PrimaryFooter() {
                     Scott Gilbert 2024
                 </div>
                 <div className='footer__section'>
-                    <a href="https://github.com" style={{color: 'black'}}>
+                    <a href="https://github.com/maplegilbs" style={{color: 'black'}}>
                         <img className='footer__icon' src={githubIcon} alt='Github Icon' />
                     </a>
-                    <a href="https://stackoverflow.com" style={{color: '#f48024'}}>
+                    <a href="https://stackoverflow.com/users/7653397/scott-g" style={{color: '#f48024'}}>
                         <img className='footer__icon' src={stackOverflowIcon} alt='Stack Overflow Icon' />
                     </a>
-                    <a href='https://linkedin.com' style={{color: '#2867b2'}}>
+                    <a href='https://www.linkedin.com/in/scott-gilbert-722462164/' style={{color: '#2867b2'}}>
                         <img className='footer__icon' src={linkedinIcon} alt='Linkedin Icon' />
                     </a>
 
