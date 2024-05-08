@@ -9,7 +9,6 @@ export function Project({ project, isMobile, isEven, windowY }) {
     useEffect(() => {
         if (imageRef) {
             let imageLoc = imageRef.current.getBoundingClientRect();
-            console.log(imageLoc, windowY, imageLoc.bottom, window.innerHeight);
             (imageLoc.top > 0 && imageLoc.bottom < window.innerHeight) ? setIsInFullView(true) : setIsInFullView(false)
         }
     }, [windowY])

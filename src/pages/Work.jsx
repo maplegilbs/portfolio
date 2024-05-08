@@ -39,6 +39,7 @@ export function Work() {
                 });
                 if (response.status === 200) {
                     let data = await response.blob();
+                    console.log(data)
                     setResumeFile(data);
                 }
             } catch (error) {
@@ -88,7 +89,8 @@ export function Work() {
                     <p>To view work history and a resume please enter the password provided to you when linked to this page.</p>
                     <div className='inputs-div'>
                         <form onSubmit={handleSubmit}>
-                            <input type="text" value={passcode} onChange={(e) => setPasscode(e.target.value)} />
+                            <label htmlFor='passcode'>Enter Passcode Provided</label>
+                            <input type="text" id="passcode" value={passcode} onChange={(e) => setPasscode(e.target.value)} />
                             <button type="submit">Enter</button>
                             {pageStatus === 'error' && <div className='error-notice'>Passcode Incorrect</div>}
                         </form>
@@ -102,15 +104,17 @@ export function Work() {
             }
             {pageStatus === 'unlocked' &&
                 <>
-                    <div className='buttons-container'>
-                        <a><button onClick={() => setIsPDFVisible(prev => !prev)}> {isPDFVisible ? "Hide Resume" : `Resume Preview`}</button></a>
-                        <a target="_blank" download={'ScottGilbertResume.pdf'} href={URL.createObjectURL(resumeFile)}><button >Resume Download</button></a>
-                    </div>
+                    {resumeFile &&
+                        <div className='buttons-container'>
+                            <a><button onClick={() => setIsPDFVisible(prev => !prev)}> {isPDFVisible ? "Hide Resume" : `Resume Preview`}</button></a>
+                            <a target="_blank" download={'ScottGilbertResume.pdf'} href={URL.createObjectURL(resumeFile)}><button >Resume Download</button></a>
+                        </div>
+                    }
                     <div>
                         {
                             (isPDFVisible && resumeFile) &&
                             <Document className="pdf-preview" file={resumeFile} loading="...Loading...">
-                                <Page pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} width={window.innerWidth < 700 ? '300' : ''}>
+                                <Page pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} width={window.innerWidth < 700 ? 300 : ''}>
                                 </Page>
                             </Document>
                         }
