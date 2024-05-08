@@ -2,14 +2,15 @@ import '../index.css';
 import './Work.css';
 import { Document, Page } from 'react-pdf';
 import { useState, useEffect } from 'react';
-import { pdfjs } from 'react-pdf';
 import { NavLink } from 'react-router-dom';
-import Loader from '../components/Loader.jsx'
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.js',
-    import.meta.url,
-).toString();
+import Loader from '../components/Loader.jsx';
+import { pdfjs } from 'react-pdf';
+//Testing fix for build
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`; 
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//     'pdfjs-dist/build/pdf.worker.min.js',
+//     import.meta.url,
+// ).toString();
 
 export function Work() {
     const [pageStatus, setPageStatus] = useState('locked'); //locked, loading, unlocked, error
