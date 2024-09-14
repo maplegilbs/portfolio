@@ -65,7 +65,6 @@ export function Project({ project, isMobile, isEven, windowY }) {
                         })
                         }
                     </div>
-                    <hr />
                 </div>
             }
             {selectedVideo &&

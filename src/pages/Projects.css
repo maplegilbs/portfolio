@@ -18,7 +18,7 @@
 .project-title {
   align-self: start;
   margin-bottom: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 .project-details {
@@ -94,7 +94,7 @@
 }
 
 .project-description {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
 }
 
 .video-popup {
@@ -160,19 +160,29 @@
     grid-area: details;
     margin: 0;
   }
+  .project-details h4 {
+    margin: 0;
+    text-align: left;
+    width: max-content;
+    border-bottom: 2px solid black;
+    font-size: 0.9rem;
+  }
   .project-description {
     grid-area: description;
     font-size: 0.9rem;
+    margin-bottom: 2rem;
   }
   .videos__container {
     grid-area: vid;
     padding: 1rem 0;
+    margin-bottom: 2rem;
   }
   .videos__container h4 {
     margin: 0;
     text-align: left;
     width: max-content;
     border-bottom: 2px solid black;
+    font-size: 0.9rem;
   }
   .videos__container .video-links__container {
     display: flex;
