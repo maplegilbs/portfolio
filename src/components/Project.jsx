@@ -1,10 +1,29 @@
 import { useEffect, useState, useRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+import { faXmarkCircle, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+
+function VideoModal({ selectedVideo, setSelectedVideo }) {
+    return (
+        <>
+            <div className="close-button" onClick={() => setSelectedVideo(null)}>
+                <FontAwesomeIcon icon={faXmarkCircle} size="xl" />
+            </div>
+            <video controls crossOrigin="anonymous">
+                <source src={selectedVideo.src} type="video/mp4" />
+                <track
+                    label="English"
+                    kind="subtitles"
+                    srcLang="en"
+                    src={selectedVideo.captionSrc}
+                    default />
+            </video>
+        </>
+    )
+}
 
 export function Project({ project, isMobile, isEven, windowY }) {
     const [isInFullView, setIsInFullView] = useState(false);
-    const [isModalVisible, setIsModalVisible] = useState(true)
+    const [selectedVideo, setSelectedVideo] = useState(null)
     const imageRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false)
     let techStack = project.technologies.map((techItem, index) => <li key={index}>{techItem}</li>)
@@ -35,21 +54,33 @@ export function Project({ project, isMobile, isEven, windowY }) {
                 </a>
             </div>
 
-            {project.name.toLowerCase() == "bear cobble hq" &&
-                <div className={`video-popup ${isModalVisible ? 'modal-visible' : 'modal-hidden'}`}>
-                    <div className="close-button" onClick={() => setIsModalVisible(false)}>
-                        <FontAwesomeIcon icon={faXmarkCircle} size="xl"/>
+            {project.videos.length > 0 &&
+                <div className='videos__container'>
+                    <h4>Video Walkthroughs</h4>
+                    <div className='video-links__container'>
+                        {project.videos.map(video => {
+                            return (
+                                <div className="video-link__container" onClick={() => setSelectedVideo(video)}>
+                                    <div className="thumbnail__container">
+                                        <div className="play-icon__container">
+                                            <FontAwesomeIcon className="play-icon" icon={faCirclePlay} size="2xl" />
+                                        </div>
+                                        <img src={video.thumbnail} />
+                                    </div>
+                                    <p>{video.name}</p>
+                                </div>
+                            )
+                        })
+                        }
                     </div>
-                    <video controls crossOrigin="anonymous">
-                        <source src="https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+720p.mp4" type="video/mp4" />
-                        <track
-                            label="English"
-                            kind="subtitles"
-                            srcLang="en"
-                            src="https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+Captions.vtt"
-                            default />
-                    </video>
+                    <hr />
                 </div>
+            }
+            {selectedVideo &&
+                <div className={`video-popup ${selectedVideo ? 'modal-visible' : 'modal-hidden'}`}>
+                    <VideoModal selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo} />
+                </div >
+
             }
 
             <div className="project-details">

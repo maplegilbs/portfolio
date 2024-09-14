@@ -12,9 +12,11 @@ export const projectDetails =
             url: 'https://bearcobble.com',
             technologies: ['Next.js', 'React', 'Sass', 'HTML/CSS3', 'Express.js', 'Vercel', 'Heroku', 'Node.js', 'MySQL', 'Smartrek'],
             videos: [{
-                name: "Walkthrough",
-                caption: "Walkthrough of Bear Cobble HQ - A Maple Production Systems Management Application",
-                src: ""
+                name: "App Walkthrough",
+                description: "Walkthrough of Bear Cobble HQ - A Maple Production Systems Management Application",
+                src: "https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+720p.mp4",
+                captionSrc: "https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+Captions.vtt",
+                thumbnail: "https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+Thumbnail.png"
             }]
         },
         {
