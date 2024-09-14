@@ -46,7 +46,6 @@
 
 .project-image {
   position: relative;
-  opacity: 0.45;
   transition: all 0.6s;
 }
 .project-image a {
@@ -58,6 +57,10 @@
   width: 50%;
   height: 20px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 .project-image img {
   width: 100%;
@@ -71,24 +74,23 @@
   position: absolute;
 }
 
-.project-image--hovered {
-  opacity: 1;
-}
-
 .project-image__button {
-  background-color: rgb(70, 70, 70);
   border: none;
-  padding: 5px 10px;
+  padding: 10px 15px;
   font-family: Rockwell;
   font-weight: 700;
   color: white;
-  border-radius: 5%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 3px white;
   cursor: pointer;
   transition: all 0.6s;
+  text-shadow: 1px 1px black;
+  background-color: rgb(0, 100, 0);
+  border: 2px solid black;
 }
-
-.project-image__button--hovered {
-  background-color: black;
+.project-image__button:hover {
+  color: black;
+  background-color: white;
 }
 
 .project-description {
@@ -127,7 +129,7 @@
 @media screen and (min-width: 720px) {
   .project-section {
     display: grid;
-    grid-template: repeat(3, minmax(1px, 1fr))/repeat(5, 1fr);
+    grid-template: repeat(3, max-content)/repeat(5, 1fr);
     gap: 0 1rem;
   }
   .image-right {
