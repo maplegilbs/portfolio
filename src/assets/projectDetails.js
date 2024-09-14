@@ -17,7 +17,8 @@ export const projectDetails =
                 src: "https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+720p.mp4",
                 captionSrc: "https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+Captions.vtt",
                 thumbnail: "https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+Thumbnail.png"
-            }]
+            },
+            ]
         },
         {
             name: 'Creek VT',
