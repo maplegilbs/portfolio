@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
 export function Project({ project, isMobile, isEven, windowY }) {
     const [isInFullView, setIsInFullView] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(true)
     const imageRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false)
     let techStack = project.technologies.map((techItem, index) => <li key={index}>{techItem}</li>)
@@ -31,6 +34,23 @@ export function Project({ project, isMobile, isEven, windowY }) {
                     <button className={`project-image__button ${(isHovered || isInFullView) ? 'project-image__button--hovered' : ''}`}>View Live Site</button>
                 </a>
             </div>
+
+            {project.name.toLowerCase() == "bear cobble hq" &&
+                <div className={`video-popup ${isModalVisible ? 'modal-visible' : 'modal-hidden'}`}>
+                    <div className="close-button" onClick={() => setIsModalVisible(false)}>
+                        <FontAwesomeIcon icon={faXmarkCircle} size="xl"/>
+                    </div>
+                    <video controls crossOrigin="anonymous">
+                        <source src="https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+720p.mp4" type="video/mp4" />
+                        <track
+                            label="English"
+                            kind="subtitles"
+                            srcLang="en"
+                            src="https://sg-web-dev-portfolio.s3.amazonaws.com/BCSW+App+Walkthrough+Captions.vtt"
+                            default />
+                    </video>
+                </div>
+            }
 
             <div className="project-details">
                 <h4> Technologies Used </h4>

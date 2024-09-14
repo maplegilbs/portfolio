@@ -95,6 +95,35 @@
   font-size: 0.9rem;
 }
 
+.video-popup {
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  padding: 10px;
+  border: 2px solid black;
+  height: 100vh;
+  top: 0vh;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video-popup.modal-visible {
+  display: flex;
+}
+.video-popup.modal-hidden {
+  display: none;
+}
+.video-popup .close-button {
+  position: absolute;
+  top: 15px;
+  right: 2rem;
+}
+.video-popup video {
+  height: 80%;
+}
+
 @media screen and (min-width: 720px) {
   .project-section {
     display: grid;

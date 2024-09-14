@@ -11,6 +11,11 @@ export const projectDetails =
             mobileImgFileName: 'bearCobbleMobile.png',
             url: 'https://bearcobble.com',
             technologies: ['Next.js', 'React', 'Sass', 'HTML/CSS3', 'Express.js', 'Vercel', 'Heroku', 'Node.js', 'MySQL', 'Smartrek'],
+            videos: [{
+                name: "Walkthrough",
+                caption: "Walkthrough of Bear Cobble HQ - A Maple Production Systems Management Application",
+                src: ""
+            }]
         },
         {
             name: 'Creek VT',
@@ -23,6 +28,7 @@ export const projectDetails =
             mobileImgFileName: 'creekVTMobile2.png',
             url: 'https://creekvt.com/flows',
             technologies: ['Javascript', 'HTML/CSS3', 'Handlebars', 'Bootstrap', 'PHP', 'MySQL', 'Express.js', 'AWS S3', 'Heroku', 'Wordpress', 'React', 'Node.js'],
+            videos: []
         },
         {
             name: 'Jeopardy',
@@ -34,6 +40,7 @@ export const projectDetails =
             imgAlt: 'A screenshot of a website mimicking jeopardy.',
             url: 'https://scottgilbert-jeopardy.vercel.app/',
             technologies: ['Javascript', 'HTML', 'CSS', 'SASS'],
+            videos: []
         },
         {
             name: 'Pixel Art Editor',
@@ -45,6 +52,7 @@ export const projectDetails =
             imgAlt: 'A screenshot of a pixel art editor with the text \'Hello World\' written out in various colors.',
             url: 'https://maplegilbs.github.io/pixel-art/',
             technologies: ['Javascript', 'HTML', 'CSS'],
+            videos: []
         },
         {
             name: 'Sap Mappers',
@@ -57,5 +65,6 @@ export const projectDetails =
             mobileImgFileName: 'sapmappersMobile.png',
             url: 'https://sapmappers.com',
             technologies: ['Javascript', 'HTML', 'CSS', 'Bootstrap'],
+            videos: []
         },
     ]
